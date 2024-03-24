@@ -2,7 +2,7 @@
 function studentGrade() {
     // define the prompt message the user will be asked when entering student marks
     const userInput = prompt("Please enter student marks!")
-    // parse userInput into a string using parseInt. i.e the parseInt takes the string stosred in userInput, converts it to an integer and passes it to the constant variable "marks."
+    // parse userInput into a string using parseInt. i.e the parseInt takes the string stored in userInput, converts it to an integer and passes it to the constant variable "marks."
     const marks = parseInt(userInput)
     
     // if/else conditional
