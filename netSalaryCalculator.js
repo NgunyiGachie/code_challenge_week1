@@ -1,10 +1,26 @@
+// define netSalary function
 function netSalary(deductions, grossSalary) {
-   
-   
+    
+    // Prompt user to enter gross salary
     let userInput = prompt("Enter Gross Salary");
 
+    // Check if user input is valid
+    if (userInput === null || userInput === "") {
+        return "Enter valid grossSalary";
+    }
+
+    // Parse user input into a float since I'm expecting some salaries to be decimals
     grossSalary = parseFloat(userInput);
 
+    // Check if gross salary is valid
+    if (isNaN(grossSalary)) {
+        return "Please enter valid grossSalary";
+    }
+
+    // Initialize deductions if not provided
+    deductions = typeof deductions === 'number' ? deductions : 0;
+
+    // NHIF deduction rates
     const nhifRates = [
         
         { min: 0, max: 5999, deduction: 150 },
@@ -39,18 +55,24 @@ function netSalary(deductions, grossSalary) {
         
         { min: 90000, max: 99999, deduction: 1600 },
         
-        { min: 100000, max: Infinity, deduction: 1700}
+        { min: 100000, max: Infinity, deduction: 1700 }
     ];
 
+    // Calculate NHIF deduction based on gross salary
     let nhifDeduction = 0;
+    
+    // loop to find the nhifRate corresponding to the grossSalary
+    for (const rate of nhifRates) {
         
-    for (const rate of nhifRates) { if (grossSalary >= rate.min && grossSalary <= rate.max) {
+        if (grossSalary >= rate.min && grossSalary <= rate.max) {
             
             nhifDeduction = rate.deduction;
+            
             break;
-    }
         }
+    }
 
+    // Calculate NSSF deduction based on gross salary
     let nssfDeduction = 0;
     
     if (grossSalary <= 7000) {
@@ -62,32 +84,35 @@ function netSalary(deductions, grossSalary) {
         nssfDeduction = 36000 * 0.06;
     }
 
+    // Calculate payee based on gross salary
+    let payee = 0;
     
     if (grossSalary >= 24000) {
         
-        payee = 24000 / 0.1
+        payee = 24000 * 0.1;
     
     } else if (grossSalary > 24000 && grossSalary <= 32333) { 
         
-        payee = grossSalary/ 0.25
-
+        payee = grossSalary * 0.25;
+    
     } else if (grossSalary > 32333 && grossSalary <= 500000) {
         
-        payee = grossSalary / 0.3
+        payee = grossSalary * 0.3;
     
     } else if (grossSalary > 500000 && grossSalary <= 800000) {
         
-        payee = grossSalary / 0.325
+        payee = grossSalary * 0.325;
     
     } else if (grossSalary > 800000) {
-        
-        payee = grossSalary / 0.35
+       
+        payee = grossSalary * 0.35;
     }
     
+    // Calculate total deductions
     const totalDeductions = deductions + payee + nhifDeduction + nssfDeduction;
 
+    // Calculate net salary
     const netSalary = grossSalary - totalDeductions;
 
     return netSalary;
-
 }
