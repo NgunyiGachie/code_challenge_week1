@@ -1,9 +1,9 @@
 # code_challenge_week1
 
 ## Table of contents
-1. [studentGrade]
-2. [speedDetector]
-3. [netSalary]
+1. Student Grade.
+2. Speed Detector.
+3. Net Salary.
 
 ### Student Grade
 This program that prompts the user to input student marks and provides the corresponding grade.
