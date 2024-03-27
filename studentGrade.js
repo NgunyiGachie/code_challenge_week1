@@ -1,9 +1,9 @@
 // define studentGrade function
 function studentGrade() {
     // define the prompt message the user will be asked when entering student marks
-    const userInput = prompt("Please enter student marks!")
+    const userInput = prompt("Please enter student marks!");
     // parse userInput into a string using parseInt. i.e the parseInt takes the string stored in userInput, converts it to an integer and passes it to the constant variable "marks."
-    const marks = parseInt(userInput)
+    const marks = parseInt(userInput);
     
     // if/else conditional
     if (marks >= 80 && marks <= 100) {
@@ -31,13 +31,9 @@ function studentGrade() {
         // execute this code block if no marks are inputed
         return "Please input valid student marks!";
     }
-    }
-    
-    // variable declaration
-    const output = studentGrade();
-    // provides the output once marks between 0 and 100 are keyed in.
-    console.log(studentGrade(marks));
-    
-    
-    
-    
+}
+
+// variable declaration
+const output = studentGrade();
+// provides the output once marks between 0 and 100 are keyed in.
+console.log(output);
