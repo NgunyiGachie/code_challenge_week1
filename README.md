@@ -15,7 +15,7 @@ The second program inputs the speed of a car and prints "Ok" if the speed is les
 This program calculates an individual's monthly net salary.
 
 ## Running
-These programs can be ran on the built JavaScript console on Google Chrome, node,Js or code editors such as Visual Studio Code with integrated terminals. 
+These programs can only ran on the built JavaScript console on Google Chrome. Please do not use VS Code terminal or node JS because the programs work with the prompt message.
 
 ## Contributions
 Contributions towards these challenges are welcome. Use the following steps;
